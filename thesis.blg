@@ -7,49 +7,50 @@ A level-1 auxiliary file: acknowledgment.aux
 A level-1 auxiliary file: summary.aux
 A level-1 auxiliary file: chapter01.aux
 A level-1 auxiliary file: chapter02.aux
+A level-1 auxiliary file: chapter03.aux
 A level-1 auxiliary file: chapter0n.aux
 A level-1 auxiliary file: acronyms.aux
 A level-1 auxiliary file: appendix-b.aux
 The style file: apa.bst
 Database file #1: refs.bib
-You've used 5 entries,
+You've used 8 entries,
             1940 wiz_defined-function locations,
-            513 strings with 4715 characters,
-and the built_in function-call counts, 1957 in all, are:
-= -- 191
-> -- 73
-< -- 5
-+ -- 24
-- -- 24
-* -- 157
-:= -- 340
-add.period$ -- 17
-call.type$ -- 5
-change.case$ -- 37
-chr.to.int$ -- 5
-cite$ -- 5
-duplicate$ -- 86
-empty$ -- 139
-format.name$ -- 31
-if$ -- 389
+            526 strings with 5048 characters,
+and the built_in function-call counts, 2746 in all, are:
+= -- 272
+> -- 94
+< -- 8
++ -- 30
+- -- 30
+* -- 211
+:= -- 499
+add.period$ -- 26
+call.type$ -- 8
+change.case$ -- 55
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 119
+empty$ -- 190
+format.name$ -- 40
+if$ -- 533
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 5
-newline$ -- 28
-num.names$ -- 15
-pop$ -- 39
+newline$ -- 43
+num.names$ -- 24
+pop$ -- 51
 preamble$ -- 1
-purify$ -- 37
+purify$ -- 55
 quote$ -- 0
-skip$ -- 63
+skip$ -- 93
 stack$ -- 0
-substring$ -- 105
-swap$ -- 20
+substring$ -- 141
+swap$ -- 23
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 30
+type$ -- 48
 warning$ -- 0
-while$ -- 16
+while$ -- 22
 width$ -- 0
-write$ -- 67
+write$ -- 106

@@ -2,20 +2,34 @@
 %!TEX root = thesis.tex
 % !TEX spellcheck = en-US
 %%=========================================
-\chapter{Methodology}
-\section{Build System}
-To make the build process smoother on machines with different hardware, an automated build system was needed. A rudimentary CMake script was already present, but this needed some extension. The key problem was identifying which (if any) of CUDA and OpenCL were present, and building the appropriate version(s). The resulting builds two binaries on systems with both OpenCL and CUDA, and will copy all necessary kernel, shader and data files for out-of-tree builds. Installation functionality was not implemented.
+\chapter{Previous work}
+What follows is a brief treatment of previous work that has been done on the Snow Simulator. Only the aspects that are relevant to my project are included. For a fuller treatment, I refer to any of a number of recent masters theses about the subject, e.g. \citet{boge2014avalanche}.
+%%=========================================
+\subsubsection*{History}
+The Snow Simulator started out as a Master's project by \citet{saltvik2006parallel}. It was CPU only, and could simulate 40 000 snow particles in real time. Later, it was ported to CUDA by \citet{eidissen2009utilizing}, which (along with hardware advances, of course) brought the particle count up to 2 000 000.
 
-Extending the build system to other compute APIs (e.g. PETSc, currently being done by Martin Stølen), should be a simple task. One can simply find the relevant library, and add it to the list of versions.
+After this, the simulator has been the subject of several master's theses, which have all improved or expanded on it in some way. Examples include visualization improvements \citep{nordahl2013enhancing}, avalanche prediction \citep{boge2014avalanche}, and porting to OpenACC \citep{mikalsen2013openacc} and OpenCL \citep{vestre2012enhancing}.
+%%=========================================
+\subsubsection*{Architecture}
+Initially, the user is greeted with a screen that allows setting various options such as number of particles, wind field size, terrain map file, whether to simulate wind and so forth. When these settings have been entered, the simulation can be started by the user.
+
+The simulator starts by initializing the data structures needed for the simulation. A heightmap is generated based on the terrain map file, the wind field is initialized (no wind initially), and randomized positions for snow particles are generated. After initialization, the simulator enters the main loop, which runs through the various simulation steps on the GPU, before rendering everything to the screen. The main simulation steps are:
+\begin{enumerate}
+\item Update obstacle field
+\item Simulate wind
+\item Move snow particles
+\item Update snow layers
+\end{enumerate}
+
+The GPU specific code is kept quite separate from the rest of the simulator. The reason for this is that most of the simulator is written in C++, but CUDA programs must be compiled with nvcc, which only accepts C. Therefore, the CUDA code is compiled into a library, libParticle.a, which is then statically linked to the rest of the simulator. All communication with this library is done using a relatively small set of public methods.
+
+Internally, the particle system library is divided into three subsystems: Snow, Wind and Terrain. Data passes quite freely between these three, mostly using global state. 
 
 %%=========================================
-\section{Library Porting}
-When starting the project, I set a goal of not changing any of the platform-independent code unless I absolutely had to. Since the particle system had a clearly defined interface and reasonably loose coupling to the rest of the simulator, this seemed like an achievable goal. Thus, the porting work roughly followed these steps:
-\begin{enumerate}
-\item Write header files specifying the interface to the particle system.
-\item Write method stubs for all the public methods of the library. At this point the simulator compiled and ran, but of course didn’t do anything apart from showing snowflakes hanging motionless in the air.
-\item Write the OpenCL boilerplate of finding platforms and devices, and creating a context and queue. Doing this correctly and portably is nontrivial, as shown by e.g. \citet{fastkor2012boilerplate}.
-\item Implement the minimum amout of functionality to see that OpenCL was actually working. This was done by writing a kernel that moved snow particles downward at a constant rate. A lot of work was required to get to this point, and the process was a whole lot smoother after this. 
-\item Port the rest of the snow and wind systems. These systems were relatively unchanged since the 2012 port, so I was able to copy most of the code for these.
-\item Port the terrain system. At this point, I was familiar with the porting process and with OpenCL, which saved me a good amount of stumbling. Also, the CUDA code was written in a single semester by a single person, so it was very clean and well-structured compared to other parts of the simulator.
-\end{enumerate}
+\subsubsection*{Existing OpenCL port}
+As mentioned, there already exists an OpenCL port of the Snow Simulator, written by \citet{vestre2012enhancing}. However, this port has become out of date due to not being updated along with the CUDA version. Hence, this project is an attempt to bring it up to date. When planning the project, two approaches were considered: 
+\begin{itemize}
+\item Base my work on the previous port, merging in all the improvements that have happened over the past two years.
+\item Base my work on the most recent version. This effectively means redoing the porting work, but will entail less work due to the possibility of copying code in areas where the simulator is unchanged.
+\end{itemize}
+I decided on the second approach,

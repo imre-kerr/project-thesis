@@ -39,24 +39,22 @@ While CUDA and OpenCL have many similarities, there are a few key differences to
 Finally, although OpenCL code is portable, code which has good performance on one platform is not necessarily performant on others. This issue of code portability versus performance portability, as well as the relative performance of OpenCL versus CUDA in general, is treated by \citet{weber2011comparing}.
 
 %%=========================================
-\subsection{The Snow Simulator}
-\subsubsection*{History}
-
-%%=========================================
-\subsubsection*{Architecture}
-
-%%=========================================
-\subsubsection*{Existing OpenCL port}
-
-%%=========================================
 \section{Goals}
 The main goal for this project can be stated simply as “Port the HPC-Lab Snow Simulator to OpenCL”. However, there are a few secondary goals that should be considered as well.
 
-Firstly, this is not the first time the snow simulator has been ported to OpenCL. Previous ports have been obsolete pretty much out of the gate, which is why the most current version has always been CUDA only. I can see two possible reasons for this. One is simply that working with two APIs is more work than working with one, and people are likely to just take the path of least resistance. To mitigate this, an OpenCL port should have the API specific code isolated from the rest of the code, separated by a clean abstraction layer. This will ensure that making changes to the host-side code will be just as easy in the cross-platform version as in the CUDA only version. One should also take steps to make the OpenCL and CUDA code both as readable and as similar to each other as possible. This will minimize the work required to make changes to the device-side code, and hopefully encourage people to keep both versions of this code up to date.
+Firstly, this is not the first time the snow simulator has been ported to OpenCL. The previous port was obsolete pretty much out of the gate, which is why the most current version has always been CUDA only. I can see two possible reasons for this. One is simply that working with two APIs is more work than working with one, and people are likely to just take the path of least resistance. To mitigate this, an OpenCL port should have the API specific code isolated from the rest of the code, separated by a clean abstraction layer. This will ensure that making changes to the host-side code will be just as easy in the cross-platform version as in the CUDA only version. One should also take steps to make the OpenCL and CUDA code both as readable and as similar to each other as possible. This will minimize the work required to make changes to the device-side code, and hopefully encourage people to keep both versions of this code up to date.
 
 Additionally, other students are also doing projects involving the snow simulator this semester. If their work and mine are not kept in sync with frequent merging, we might end up with separate versions, and future projects will need to choose between these when choosing what code base to work on.
 
 Finally, the snow simulator is a very computationally intensive program. Producing correct code should of course be priority number one, but one should not neglect performance. Therefore I will analyze the performance of the simulator using whatever tools I can, and explore options for using OpenCL-specific tricks to improve this performance.
+
+%%=========================================
+\section{Motivation}
+Rather than being a purely academic exercise, there are a few reasons why an OpenCL port of the Snow Simulator was desired. Of course, supporting more platforms is ``better'', but we had a few things in mind apart from this.
+
+First of all, it paves the way for exploring GPGPU on mobile platforms. Even though Nvidia's Tegra chips got CUDA support with the Tegra K1, only a few devices with this processor are currently available. An OpenCL version will enable us to use mobile graphics hardware such as e.g. ARM's Mali GPU.
+
+Also, when this project was started, there were plans for the HPC Lab to build a display wall. Such a display is composed of several smaller screens, allowing for large screen size and resolution at a moderate price. We found that the best choice for a large multi-monitor setup like this would be AMD's Eyefinity. Running the Snow Simulator on AMD hardware would require an OpenCL port. This project may still happen at some point, but it is less of a priority since the Lab recently purchased an 85-inch 4k monitor, which fills the same role.
 
 %%=========================================
 \section{Structure of the Report}

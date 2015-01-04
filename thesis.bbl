@@ -1,5 +1,15 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\astroncite{Boge}{2014}]{boge2014avalanche}
+Boge, O.~L. (2014).
+\newblock Avalanche simulations using fracture mechanics on the gpu.
+\newblock Master's thesis, Norwegian University of Science and Technology.
+
+\bibitem[\protect\astroncite{Eidissen}{2009}]{eidissen2009utilizing}
+Eidissen, R. (2009).
+\newblock Utilizing gpus for real-time visualization of snow.
+\newblock Master's thesis, Norwegian University of Science and Technology.
+
 \bibitem[\protect\astroncite{Fastkor}{2012}]{fastkor2012boilerplate}
 Fastkor (2012).
 \newblock Example: Opencl boilerplate.
@@ -24,6 +34,11 @@ Nvidia (2014).
 \newblock Cuda c programming guide.
 \newblock {\em
   http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html}.
+
+\bibitem[\protect\astroncite{Saltvik}{2006}]{saltvik2006parallel}
+Saltvik, I. (2006).
+\newblock Parallel methods for real-time visualization of snow.
+\newblock Master's thesis, Norwegian University of Science and Technology.
 
 \bibitem[\protect\astroncite{Weber et~al.}{2011}]{weber2011comparing}
 Weber, R., Gothandaraman, A., Hinde, R.~J., and Peterson, G.~D. (2011).

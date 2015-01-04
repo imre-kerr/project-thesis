@@ -7,18 +7,19 @@
 \contentsline {subsection}{\numberline {1.1.2}General-Purpose GPU Computing}{2}{subsection.1.1.2}
 \contentsline {subsection}{\numberline {1.1.3}CUDA}{3}{subsection.1.1.3}
 \contentsline {subsection}{\numberline {1.1.4}OpenCL}{3}{subsection.1.1.4}
-\contentsline {subsection}{\numberline {1.1.5}The Snow Simulator}{4}{subsection.1.1.5}
 \contentsline {section}{\numberline {1.2}Goals}{4}{section.1.2}
-\contentsline {section}{\numberline {1.3}Structure of the Report}{5}{section.1.3}
-\contentsline {chapter}{\numberline {2}Methodology}{6}{chapter.2}
-\contentsline {section}{\numberline {2.1}Build System}{6}{section.2.1}
-\contentsline {section}{\numberline {2.2}Library Porting}{6}{section.2.2}
-\contentsline {chapter}{\numberline {3}Summary}{8}{chapter.3}
-\contentsline {section}{\numberline {3.1}Summary and Conclusions}{8}{section.3.1}
-\contentsline {section}{\numberline {3.2}Discussion}{8}{section.3.2}
-\contentsline {section}{\numberline {3.3}Recommendations for Further Work}{9}{section.3.3}
-\contentsline {chapter}{\numberline {A}Acronyms}{10}{appendix.A}
-\contentsline {chapter}{\numberline {B}Additional Information}{11}{appendix.B}
-\contentsline {section}{\numberline {B.1}Introduction}{11}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}More Details}{11}{subsection.B.1.1}
-\contentsline {chapter}{Bibliography}{12}{subsection.B.1.1}
+\contentsline {section}{\numberline {1.3}Motivation}{5}{section.1.3}
+\contentsline {section}{\numberline {1.4}Structure of the Report}{5}{section.1.4}
+\contentsline {chapter}{\numberline {2}Previous work}{7}{chapter.2}
+\contentsline {chapter}{\numberline {3}Methodology}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Build System}{9}{section.3.1}
+\contentsline {section}{\numberline {3.2}Library Porting}{9}{section.3.2}
+\contentsline {chapter}{\numberline {4}Summary}{11}{chapter.4}
+\contentsline {section}{\numberline {4.1}Summary and Conclusions}{11}{section.4.1}
+\contentsline {section}{\numberline {4.2}Discussion}{11}{section.4.2}
+\contentsline {section}{\numberline {4.3}Recommendations for Further Work}{12}{section.4.3}
+\contentsline {chapter}{\numberline {A}Acronyms}{13}{appendix.A}
+\contentsline {chapter}{\numberline {B}Additional Information}{14}{appendix.B}
+\contentsline {section}{\numberline {B.1}Introduction}{14}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}More Details}{14}{subsection.B.1.1}
+\contentsline {chapter}{Bibliography}{15}{subsection.B.1.1}

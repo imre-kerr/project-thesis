@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.3)  4 JAN 2015 12:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.3)  4 JAN 2015 15:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -790,8 +790,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip50
 ))
 (./thesis.aux (./front.aux) (./preface.aux) (./acknowledgment.aux)
-(./summary.aux) (./chapter01.aux) (./chapter02.aux) (./chapter0n.aux)
-(./acronyms.aux) (./appendix-b.aux))
+(./summary.aux) (./chapter01.aux) (./chapter02.aux) (./chapter03.aux)
+(./chapter0n.aux) (./acronyms.aux) (./appendix-b.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -1020,36 +1020,49 @@ LaTeX Font Info:    Try loading font information for TS1+futs on input line 36.
 
  (/usr/share/texlive/texmf-dist/tex/latex/fourier/ts1futs.fd
 File: ts1futs.fd 2004/03/26 Fontinst v1.926 font definitions for TS1/futs.
-) [4]
-Overfull \hbox (8.27702pt too wide) in paragraph at lines 57--58
+)
+Overfull \hbox (8.27702pt too wide) in paragraph at lines 47--48
 []\T1/futs/m/n/12 Additionally, other stu-dents are also do-ing projects in-vol
 v-ing the snow sim-u-la-tor this semester.
  []
 
-) [5]
+[4]) [5] [6]
 \openout2 = `chapter02.aux'.
 
  (./chapter02.tex
 Chapter 2.
-[6
+
+Package natbib Warning: Citation `eidissen2009utilizing' on page 7 undefined on
+ input line 9.
+
+) [7
 
 
 
-]) [7]
+] [8]
+\openout2 = `chapter03.aux'.
+
+ (./chapter03.tex
+Chapter 3.
+[9
+
+
+
+]) [10]
 \openout2 = `chapter0n.aux'.
 
  (./chapter0n.tex
-Chapter 3.
-[8
+Chapter 4.
+[11
 
 
 
-]) [9]
+]) [12]
 \openout2 = `acronyms.aux'.
 
  (./acronyms.tex
 Appendix A.
-) [10
+) [13
 
 
 
@@ -1058,31 +1071,39 @@ Appendix A.
 
  (./appendix-b.tex
 Appendix B.
-) [11
+) [14
 
 
 
 ] (./thesis.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 44.
- [12
+
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 45.
+[15
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 44.
- (./thesis.aux (./front.aux) (./preface.aux)
-(./acknowledgment.aux) (./summary.aux) (./chapter01.aux) (./chapter02.aux)
-(./chapter0n.aux) (./acronyms.aux) (./appendix-b.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 44.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 44.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 45.
+ (./thesis.aux (./front.aux) (./preface.aux) (./acknowledgment.aux)
+(./summary.aux) (./chapter01.aux) (./chapter02.aux) (./chapter03.aux)
+(./chapter0n.aux) (./acronyms.aux) (./appendix-b.aux)
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 45.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 45.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: C612B2B42F2AA20D1B1D67CB376056F2;1430.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 44.
+(rerunfilecheck)             Checksum: AFD543B074492512FB2CCCF69951DF90;1464.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
  ) 
 Here is how much of TeX's memory you used:
- 8302 strings out of 495028
- 115199 string characters out of 6181498
- 201635 words of memory out of 5000000
- 11237 multiletter control sequences out of 15000+600000
+ 8327 strings out of 495028
+ 115650 string characters out of 6181498
+ 202057 words of memory out of 5000000
+ 11248 multiletter control sequences out of 15000+600000
  68538 words of font info for 65 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  36i,5n,34p,978b,408s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1091,10 +1112,10 @@ e/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopi
 a/putri8a.pfb>
-Output written on thesis.pdf (17 pages, 91279 bytes).
+Output written on thesis.pdf (20 pages, 96752 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 232 compressed objects within 3 object streams
- 56 named destinations out of 1000 (max. 500000)
- 193 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 284 PDF objects out of 1000 (max. 8388607)
+ 255 compressed objects within 3 object streams
+ 63 named destinations out of 1000 (max. 500000)
+ 201 words of extra memory for PDF output out of 10000 (max. 10000000)
 
