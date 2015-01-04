@@ -3,53 +3,38 @@
 % !TEX spellcheck = en-US
 %%=========================================
 \chapter{Introduction}
-The first chapter of a well-structured thesis is always an introduction, setting the scene with background, problem description, objectives, limitations, and then looking ahead to summarize what is in the rest of the report. This is the part that readers look at first---\emph{so make sure it hooks them!}
 
 %%=========================================
 \section{Background}
-In this section, you should present the problem that you are going to investigate or analyze; why this problem is of interest; what has, so far, been done to solve the problem, and which parts of the problem that remain.
+\subsection{Graphics Hardware}
+Graphics processing units (GPUs) are special-purpose processors designed with graphics in mind. Computer graphics require large amounts of calculations, typically the same calculations done over and over. This type of workload is very different from the mostly serial workloads typically done by CPUs. Hence, large performance benefits can be gotten by using specialized hardware with a large number of execution units in a single-instruction/multiple-data (SIMD) setup.
 
-{\color{red}Below, I have set up some headings (subsection titles) without a number. These are included to help you remember to cover the related issues. The headings should be removed in your final print.}
 %%=========================================
-\subsection*{Problem Formulation}
-You should define your problem in a clear an unambiguous way and explain why this is a problem, why it is of interest---and to whom. It is also important to delimit the problem area.
+\subsection{General-Purpose GPU Computing}
+As it happens, there is another field where SIMD hardware is widely used: scientific computing. A typical physics simulation (e.g. a weather report) can involve solving systems of equations with thousands of unknowns. Historically, vector processors were used for this purpose. However, these processors were little used outside of scientific computing, leading to high cost due to the nature of semiconductor manufacturing. Designing a processor, making photolithography masks and buying fabrication equipment are all extremely expensive. Once these are done, though, processors can be made at next to no cost, leading to economies of scale. 
+
+GPUs, on the other hand, are sold in vast quantities to the consumer market, due in no small part to computer games. If one could use graphics hardware to compute other things than graphics, one could potentially do scientific computing at much lower cost.
+
+Experiments in general-purpose GPU (GPGPU for short) computing began with \citet{larsen2001fast}, which presents a routine for matrix multiplication using graphics hardware. This was enabled by graphics hardware that supported programmable shaders and floating-point arithmetic, which had previously been lacking. \citet{galoppo2005lu} represented one of the first implementations of a common scientific programming primitive which ran faster than the CPU implementation.
+
+However, GPGPU still had one fatal flaw. The only APIs available for interfacing with GPUs were graphics APIs, in particular OpenGL and DirectX. Programming for GPUs therefore meant casting everything in terms of graphics primitives, which was tedious, error-prone and inaccessible.
+
 %%=========================================
-\subsection*{Literature Survey}
-You should here present the main books and articles that treat problems that are similar to what  you are studying. If you,  later in your thesis, describe the ``state of the art'' -- with a detailed literature survey, you may just give a very brief survey here (approx. a quarter of a page). If this is the only literature survey, you need to go into more details. An objective of the literature survey is to show the reader that you are familiar with the main literature within your field of research -- so that you do not ``reinvent the wheel.''
+\subsection{CUDA}
 
-
-References to literature can be given in two different ways:
-\begin{itemize}
-\item As an \emph{explicit} reference: It is shown by \citet{lundteigen08} and partly also by \citet{rausand14}  that \ldots.
-\item As an \emph{implicit} reference: It is shown \citep[e.g., see][Chap. 4]{rausand04} that \ldots.
-\end{itemize}
-In the example above, we have used ``author-year'' references, which is the preferred format. 
-\begin{remark}
-Following agreement with your supervisor, you may also refer by numbers, for example,  [1]. To do this, open the file \texttt{ramsstyle.sty} and  comment out (by \%) the command \texttt{$\backslash$usepackage\{natbib\}} and un-comment the corresponding command \texttt{$\backslash$usepackage[numbers]\{natbib\}}.\footnote{Notice the strange way we have to write the ``backslash'' in the text. This is because the ``backslash'' is a command in \LaTeX.}
-\end{remark}
- You may include a link to the Internet in the text or in a footnote by using a command like: \url{http://www.ntnu.edu/ross}. 
-
-When you refer to the scientific literature, you should always write in \emph{present} tense. Example: \citet{rausand04} show that \ldots.
-
-\begin{remark}
-Hyperlinks are included by the command \texttt{$\backslash$usepackage\{hyperref}\} in \texttt{ramsstyle.sty}. If you feel that the hyperlinks are disturbing when you enter the text, or want to avoid the hyperlinks in printed text, you may either comment out or edit this command in \texttt{ramsstyle.sty}.
-\end{remark}
 %%=========================================
-\subsection*{What Remains to be Done?}
-After you have defined and delimited your problem -- and presented the relevant results found in the literature within this field, you should sum up which parts of the problem that remain to be solved.
+\subsection{OpenCL}
+
+
 %%=========================================
-\section{Objectives}
-The main objectives of this Master's project are
-\begin{enumerate}
-\item This is the first objective
-\item This is the second objective
-\item This is the third objective
-\item More objectives
-\end{enumerate}
+\section{Goals}
+The main goal for this project can be stated simply as “Port the HPC-Lab Snow Simulator to OpenCL”. However, there are a few secondary goals that should be considered as well.
 
-The objectives shall be written as \emph{fundamental objectives} telling what to do and not \emph{means objectives} telling how to do it.
+Firstly, this is not the first time the snow simulator has been ported to OpenCL. Previous ports have been obsolete pretty much out of the gate, which is why the most current version has always been CUDA only. I can see two possible reasons for this. One is simply that working with two APIs is more work than working with one, and people are likely to just take the path of least resistance. To mitigate this, an OpenCL port should have the API specific code isolated from the rest of the code, separated by a clean abstraction layer. This will ensure that making changes to the host-side code will be just as easy in the cross-platform version as in the CUDA only version. One should also take steps to make the OpenCL and CUDA code both as readable and as similar to each other as possible. This will minimize the work required to make changes to the device-side code, and hopefully encourage people to keep both versions of this code up to date.
 
-All objectives shall be stated such that we, after having read the thesis, can see whether or not you have met the objective. ``To become familiar with \ldots'' is therefore not a suitable objective.
+Additionally, other students are also doing projects involving the snow simulator this semester. If their work and mine are not kept in sync with frequent merging, we might end up with separate versions, and future projects will need to choose between these when choosing what code base to work on.
+
+Finally, the snow simulator is a very computationally intensive program. Producing correct code should of course be priority number one, but one should not neglect performance. Therefore I will analyze the performance of the simulator using whatever tools I can, and explore options for using OpenCL-specific tricks to improve this performance.
 
 %%=========================================
 \section{Limitations}

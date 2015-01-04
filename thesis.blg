@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2014)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
 A level-1 auxiliary file: front.aux
@@ -13,44 +13,46 @@ A level-1 auxiliary file: appendix-b.aux
 The style file: apa.bst
 A level-1 auxiliary file: vitae.aux
 Database file #1: refs.bib
-You've used 3 entries,
+Warning--I didn't find a database entry for "rausand04"
+You've used 1 entry,
             1940 wiz_defined-function locations,
-            501 strings with 4258 characters,
-and the built_in function-call counts, 1050 in all, are:
-= -- 102
-> -- 33
-< -- 3
-+ -- 10
-- -- 10
-* -- 86
-:= -- 188
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 19
-chr.to.int$ -- 3
-cite$ -- 3
-duplicate$ -- 42
-empty$ -- 78
-format.name$ -- 17
-if$ -- 203
+            491 strings with 3989 characters,
+and the built_in function-call counts, 514 in all, are:
+= -- 54
+> -- 13
+< -- 2
++ -- 4
+- -- 4
+* -- 36
+:= -- 81
+add.period$ -- 4
+call.type$ -- 1
+change.case$ -- 7
+chr.to.int$ -- 1
+cite$ -- 1
+duplicate$ -- 25
+empty$ -- 40
+format.name$ -- 7
+if$ -- 111
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 5
-newline$ -- 18
-num.names$ -- 9
-pop$ -- 18
+missing$ -- 1
+newline$ -- 8
+num.names$ -- 3
+pop$ -- 9
 preamble$ -- 1
-purify$ -- 20
+purify$ -- 7
 quote$ -- 0
-skip$ -- 32
+skip$ -- 20
 stack$ -- 0
-substring$ -- 67
-swap$ -- 6
-text.length$ -- 0
+substring$ -- 36
+swap$ -- 9
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 14
+type$ -- 6
 warning$ -- 0
-while$ -- 8
+while$ -- 5
 width$ -- 0
-write$ -- 42
+write$ -- 16
+(There was 1 warning)
