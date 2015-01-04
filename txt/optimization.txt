@@ -1,0 +1,18 @@
+Use optimization flags when building kernel programs
+	Discuss unsafe math optimizations
+Async/OoO
+	Should wind wait for snow or vice versa?
+	Depends on problem size
+	Circular dependencies = poop
+	Possibly: barriers before and after: write windtex, write terrain
+Workgroup sizes
+	What does the literature say about this?
+	Mostly arbitrary numerical constants
+	Have OpenCL figure it out? Is such a thing even possible?
+	Tune it based on the device in question?
+Memory optimizations
+	Hmmmmmm
+	Array of Struct -> Struct of arrays?
+	Scatter -> Gather?
+	Sorting? Demonstrated speedup (ref. Vestre)
+	Where is that damn article?

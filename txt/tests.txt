@@ -1,0 +1,15 @@
+Only expected and actual results in testing section!
+
+1. Snow, terrain and skybox renders properly
+2. Snow moves towards the ground when there is no wind
+3. New snow spawns at top
+4. Snow piles up 
+5. No snow below ground level
+6. When ground smoothing enabled, ground is smoothed (FAIL!)
+7. Snow gets blown around by wind
+8. Changing wind direction/speed causes a corresponding change in snow movement
+9. Wind debug displays render correctly
+10. Wind debug displays look "reasonable"/similar to CUDA version
+11. Avalanche prediction looks similar to CUDA version 
+
+Ground smoothing: Discovered too late, result seems to indicate indexing errors.
