@@ -29,6 +29,17 @@ Larsen, E.~S. and McAllister, D. (2001).
 \newblock In {\em Proceedings of the 2001 ACM/IEEE conference on
   Supercomputing}, pages 55--55. ACM.
 
+\bibitem[\protect\astroncite{Mikalsen}{2013}]{mikalsen2013openacc}
+Mikalsen, M.~A. (2013).
+\newblock Openacc-based snow simulation.
+\newblock Master's thesis, Norwegian University of Science and Technology.
+
+\bibitem[\protect\astroncite{Nordahl}{2013}]{nordahl2013enhancing}
+Nordahl, A. (2013).
+\newblock Enhancing the hpc-lab snow simulator with more realistic terrains and
+  other interactive features.
+\newblock Master's thesis, Norwegian University of Science and Technology.
+
 \bibitem[\protect\astroncite{Nvidia}{2014}]{nvidia2014programming}
 Nvidia (2014).
 \newblock Cuda c programming guide.
@@ -38,6 +49,12 @@ Nvidia (2014).
 \bibitem[\protect\astroncite{Saltvik}{2006}]{saltvik2006parallel}
 Saltvik, I. (2006).
 \newblock Parallel methods for real-time visualization of snow.
+\newblock Master's thesis, Norwegian University of Science and Technology.
+
+\bibitem[\protect\astroncite{Vestre}{2012}]{vestre2012enhancing}
+Vestre, F. M.~J. (2012).
+\newblock Enhancing and porting the hpc-lab snow simulator to opencl on mobile
+  platforms.
 \newblock Master's thesis, Norwegian University of Science and Technology.
 
 \bibitem[\protect\astroncite{Weber et~al.}{2011}]{weber2011comparing}

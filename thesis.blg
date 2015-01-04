@@ -13,44 +13,44 @@ A level-1 auxiliary file: acronyms.aux
 A level-1 auxiliary file: appendix-b.aux
 The style file: apa.bst
 Database file #1: refs.bib
-You've used 8 entries,
+You've used 11 entries,
             1940 wiz_defined-function locations,
-            526 strings with 5048 characters,
-and the built_in function-call counts, 2746 in all, are:
-= -- 272
-> -- 94
-< -- 8
-+ -- 30
-- -- 30
-* -- 211
-:= -- 499
-add.period$ -- 26
-call.type$ -- 8
-change.case$ -- 55
-chr.to.int$ -- 8
-cite$ -- 8
-duplicate$ -- 119
-empty$ -- 190
-format.name$ -- 40
-if$ -- 533
+            536 strings with 5386 characters,
+and the built_in function-call counts, 3535 in all, are:
+= -- 353
+> -- 115
+< -- 11
++ -- 36
+- -- 36
+* -- 265
+:= -- 658
+add.period$ -- 35
+call.type$ -- 11
+change.case$ -- 73
+chr.to.int$ -- 11
+cite$ -- 11
+duplicate$ -- 152
+empty$ -- 241
+format.name$ -- 49
+if$ -- 677
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 5
-newline$ -- 43
-num.names$ -- 24
-pop$ -- 51
+newline$ -- 58
+num.names$ -- 33
+pop$ -- 63
 preamble$ -- 1
-purify$ -- 55
+purify$ -- 73
 quote$ -- 0
-skip$ -- 93
+skip$ -- 123
 stack$ -- 0
-substring$ -- 141
-swap$ -- 23
+substring$ -- 177
+swap$ -- 26
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
+type$ -- 66
 warning$ -- 0
-while$ -- 22
+while$ -- 28
 width$ -- 0
-write$ -- 106
+write$ -- 145
