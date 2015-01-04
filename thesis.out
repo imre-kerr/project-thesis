@@ -1,6 +1,6 @@
 \BOOKMARK [1][-]{Doc-Start}{Problem Description}{}% 1
 \BOOKMARK [1][-]{section*.1}{Acknowledgment}{}% 2
-\BOOKMARK [1][-]{section*.2}{Summary and Conclusions}{}% 3
+\BOOKMARK [1][-]{section*.2}{Abstract}{}% 3
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 4
 \BOOKMARK [1][-]{section.1.1}{Background}{chapter.1}% 5
 \BOOKMARK [2][-]{subsection.1.1.1}{Graphics Hardware}{section.1.1}% 6
@@ -18,15 +18,15 @@
 \BOOKMARK [1][-]{section.3.2}{Testing}{chapter.3}% 18
 \BOOKMARK [2][-]{subsection.3.2.1}{Test Setup}{section.3.2}% 19
 \BOOKMARK [2][-]{subsection.3.2.2}{Test Methodology}{section.3.2}% 20
-\BOOKMARK [2][-]{subsection.3.2.3}{Functional tests}{section.3.2}% 21
-\BOOKMARK [2][-]{subsection.3.2.4}{Performance tests}{section.3.2}% 22
-\BOOKMARK [1][-]{section.3.3}{Discussion}{chapter.3}% 23
-\BOOKMARK [2][-]{subsection.3.3.1}{Functional tests}{section.3.3}% 24
-\BOOKMARK [2][-]{subsection.3.3.2}{Performance tests}{section.3.3}% 25
-\BOOKMARK [0][-]{chapter.4}{Summary}{}% 26
-\BOOKMARK [1][-]{section.4.1}{Summary and Conclusions}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.2}{Discussion}{chapter.4}% 28
-\BOOKMARK [1][-]{section.4.3}{Recommendations for Further Work}{chapter.4}% 29
+\BOOKMARK [2][-]{subsection.3.2.3}{Functional Tests}{section.3.2}% 21
+\BOOKMARK [2][-]{subsection.3.2.4}{Performance Tests}{section.3.2}% 22
+\BOOKMARK [0][-]{chapter.4}{Discussion and Further Work}{}% 23
+\BOOKMARK [1][-]{section.4.1}{Discussion of Results}{chapter.4}% 24
+\BOOKMARK [2][-]{subsection.4.1.1}{Functional Tests}{section.4.1}% 25
+\BOOKMARK [2][-]{subsection.4.1.2}{Performance Tests}{section.4.1}% 26
+\BOOKMARK [1][-]{section.4.2}{Recommendations for Further Work}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.2.1}{Bug Fixing}{section.4.2}% 28
+\BOOKMARK [2][-]{subsection.4.2.2}{Optimization}{section.4.2}% 29
 \BOOKMARK [0][-]{appendix.A}{Acronyms}{}% 30
 \BOOKMARK [0][-]{appendix.B}{Profiling Data}{}% 31
 \BOOKMARK [0][-]{figure.B.9}{Bibliography}{}% 32

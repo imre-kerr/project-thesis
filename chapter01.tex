@@ -7,7 +7,7 @@
 %%=========================================
 \section{Background}
 \subsection{Graphics Hardware}
-Graphics processing units (GPUs) are special-purpose processors designed with graphics in mind. Computer graphics require large amounts of calculations, typically the same calculations done over and over. This type of workload is very different from the mostly serial workloads typically done by CPUs. Hence, large performance benefits can be gotten by using specialized hardware with a large number of execution units in a single-instruction/multiple-data (SIMD) setup.
+Graphics processing units (GPUs) are special-purpose processors designed with graphics in mind. Computer graphics require large numbers of calculations, typically the same calculations done over and over. This type of workload is very different from the mostly serial workloads typically done by CPUs. Hence, large performance benefits can be obtained by using specialized hardware with a large number of execution units in a single-instruction/multiple-data (SIMD) setup.
 
 %%=========================================
 \subsection{General-Purpose GPU Computing}
@@ -15,7 +15,7 @@ As it happens, there is another field where SIMD hardware is widely used: scient
 
 GPUs, on the other hand, are sold in vast quantities to the consumer market, due in no small part to computer games. If one could use graphics hardware to compute other things than graphics, one could potentially do scientific computing at much lower cost.
 
-Experiments in general-purpose GPU (GPGPU for short) computing began with \citet{larsen2001fast}, which presents a routine for matrix multiplication using graphics hardware. This was enabled by graphics hardware that supported programmable shaders and floating-point arithmetic, which had previously been lacking. \citet{galoppo2005lu} represented one of the first implementations of a common scientific programming primitive which ran faster than the CPU implementation.
+Experiments in general-purpose GPU (GPGPU for short) computing began with \citet{larsen2001fast}, who presented a routine for matrix multiplication using graphics hardware. This was enabled by graphics hardware that supported programmable shaders and floating-point arithmetic, which had previously been lacking. \citet{galoppo2005lu} represented one of the first implementations of a common scientific programming primitive which ran faster than the CPU implementation, namely LU factorization.
 
 However, GPGPU still had one fatal flaw. The only APIs available for interfacing with GPUs were graphics APIs, in particular OpenGL and DirectX. Programming for GPUs therefore meant casting everything in terms of graphics primitives, which was tedious, error-prone and inaccessible.
 
@@ -23,7 +23,7 @@ However, GPGPU still had one fatal flaw. The only APIs available for interfacing
 \subsection{CUDA}
 Released in 2006, Nvidia's CUDA sought to make GPU programming easier by letting programmers write programs as they were used to, namely in terms of the task at hand rather than graphics primitives. CUDA is currently widely used, not only in scientific computing, but also for image and video processing, cryptography, physics simulation in games and more.
 
-The CUDA programming model splits code into host-side code, which runs on the CPU, and device-side code (also called kernels) which runs on the GPU. When calling a kernel, the number of threads to be created is included as an argument. Copying data between the host and device, as well as allocating memory on the device, is done explicitly. This allows the programmer to take advantage of the memory hierarchy on the device, placing often-used data in fast memory.
+The CUDA programming model splits code into host-side code, which runs on the CPU, and device-side code (also called kernels) which runs on the GPU. When calling a kernel, the number of threads to be created is included as an argument. Copying data between the host and device, as well as allocating memory on the device, is done explicitly. This allows the programmer to take advantage of the memory hierarchy on the device, placing frequently used data in fast memory.
 
 A much more thorough treatment of the CUDA programming model is given in the CUDA C Programming guide \citep{nvidia2014programming}.
 
@@ -58,4 +58,4 @@ Also, when this project was started, there were plans for the HPC Lab to build a
 
 %%=========================================
 \section{Structure of the Report}
-The rest of the report is organized as follows. Chapter 2 briefly describes the previous work on the Snow Simulator. Chapter 3 describes the actual porting work (briefly, as this is quite boring and mechanical), before going into the testing that was done, as well as the results of these tests. Chapter 3 discusses the results, suggests future work based on these.
+The rest of the report is organized as follows. Chapter 2 briefly describes the previous work on the Snow Simulator. Chapter 3 describes the actual porting work, before going into the testing that was done, as well as the results of these tests. Chapter 4 discusses the results, and suggests future work based on these.

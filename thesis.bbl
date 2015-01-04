@@ -1,9 +1,20 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\astroncite{AMD}{2014}]{amd2014opencl}
+AMD (2014).
+\newblock Opencl optimization guide.
+\newblock {\em
+  http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/}.
+
 \bibitem[\protect\astroncite{Boge}{2014}]{boge2014avalanche}
 Boge, O.~L. (2014).
 \newblock Avalanche simulations using fracture mechanics on the gpu.
 \newblock Master's thesis, Norwegian University of Science and Technology.
+
+\bibitem[\protect\astroncite{Denel}{2013}]{denel2013ltpv}
+Denel, S. (2013).
+\newblock Light temporal performance viewer.
+\newblock {\em https://github.com/LTPV/LTPV}.
 
 \bibitem[\protect\astroncite{Eidissen}{2009}]{eidissen2009utilizing}
 Eidissen, R. (2009).

@@ -1,0 +1,58 @@
+% !TEX encoding = UTF-8 Unicode
+%!TEX root = thesis.tex
+% !TEX spellcheck = en-US
+%%=========================================
+\chapter{Discussion and Further Work}
+
+\section{Discussion of Results}
+\subsection{Functional Tests}
+One serious issue uncovered by functional testing was the erroneous results with ground smoothing enabled. The smoothing function works by comparing the height of a grid cell with the neighbors, and increasing or decreasing the height if the difference is, respectively, below or above a certain threshold. I can see two possible explanations for the observed behavior:
+\begin{itemize}
+\item The smoothing function is comparing the height not to that of the cell's neighbors, but to some more distant cell. This would indicate some sort of indexing error.
+\item Race conditions. The change in height needs to happen after all threads have read the current height.
+\end{itemize}
+The other issue was that snow particles seem to gradually disappear when the simulator is run for longer periods of time. If this was only visual, I would assume this was because they got stuck somewhere, unable to move. However, the fact that this effect is accompanied by a gradual increase in frame rate suggests that less and less computation is done. A possible explanation is that if lots of snow particles are stuck in one place, this increases data locality when reading the windfield, leading to the observed speedup.
+
+%%=========================================
+\subsection{Performance Tests}
+From the frame rate data in table \ref{table:framerates} we see that the performance of the CUDA and OpenCL versions are comparable, but slightly different based on the parameters used. Larger wind fields lead to more similar results, while larger particle counts lead to better relative performance in the CUDA version. This would suggest that the OpenCL port lags the CUDA version in performance of the SnowSystem kernels. Anyone looking to improve the performance of the OpenCL version would do well to look here first.
+
+The profiling data shows that for most settings the SnowSystem \texttt{part\_update} kernel takes as long or longer than the entire wind simulation (\texttt{wind\_advect}, \texttt{build\_solution}, \texttt{solve\_poisson} and \texttt{set\_boundary} five times each, and \texttt{wind\_project}). Rendering (the white space between the bars) takes a non-negligible amount of time as well.
+
+%%=========================================
+\section{Recommendations for Further Work}
+\subsection{Bug Fixing}
+Obviously, fixing the observed bugs should be a priority. A more sophisticated profiler (e.g. CodeXL) might be able to uncover the reason behind the disappearing snow particles by confirming or refuting my speculation about data locality. 
+
+%%=========================================
+\subsection{Optimization}
+\subsubsection*{Asynchronous/Out-of-Order Execution}
+OpenCL provides the possibility of letting the runtime decide the order of execution. All of the \texttt{clEnqueue...} family of functions have an output parameter \texttt{event}, as well as an input parameter \texttt{event\_list}. The event list is an array of event objects representing previous tasks that this task depends on. Thus one can create a \emph{task graph} representing all the dependencies between tasks, letting the runtime maximize efficiency by e.g. running kernel code and DMA transfers at the same time. This also has the benefit of sending a larger batch of commands to the GPU, reducing overhead.
+
+The main, high-level dependencies in the Snow Simulator are:
+\begin{itemize}
+\item \texttt{part\_update} depends on the windfield calculation.
+\item \texttt{update\_obstacles} depends on the changes to the heightmap from \texttt{part\_update} and \texttt{smooth\_ground}.
+\end{itemize}
+Since the windfield read by \texttt{part\_update} is in the form of a 3D texture, written at the very end of the windfield calculation, one could enqueue both the wind and snow simulation kernels at the same time, and only write the windfield texture after both were done. Something similar would have to be done to the heightmap updates.
+
+\subsubsection*{3D Texture Writes}
+There exists an optional OpenCL extension called \textbf{cl\_khr\_3d\_image\_writes}, which allows 3D textures to be written by kernel code. Currently the windfield is in the form of a vertex buffer object, which is copied to a 3D texture at the end of the windfield simulation. If the WindSystem kernels could write directly to this texture instead, one would eliminate this copy operation, as well as possibly improving data locality since textures are typically packed more densely than VBOs.
+
+Support for this extension is limited, however. In particular, no current Nvidia hardware supports it. Consequently, one would have to check for this capability either at run time or compile time. Also, given the limited support, one might ask if it is worth the trouble at all.
+
+\subsubsection*{Workgroup Sizes}
+Currently, sizes and numbers of workgroups are fixed constants. The OpenCL Optimization Guide \citep{amd2014opencl} gives the minimum number of workgroups as being the number of compute units on the device. Beyond this, some tuning may be necessary to find the optimum. This tuning could potentially be done at automatically at runtime, writing the work partitioning settings to a file for future use.
+
+\subsubsection*{Compiler Optimizations}
+While OpenCL compilers typically optimize code quite aggressively, a number of potentially useful optimizations are turned off by default due to peculiarities in how floating point numbers work. As a simple example, the expressions 
+\begin{equation*}
+a \cdot b \cdot c \cdot a \cdot b \cdot c
+\end{equation*}
+and
+\begin{equation*}
+(a \cdot b \cdot c) ^ 2
+\end{equation*}
+which are equivalent when $a$, $b$ and $c$ are real numbers, are not equivalent when they are floating point numbers. Also, for full standards compliance one must check for numbers being NaN or Infinity, and pay attention to the signedness of zero.
+
+It is possible to bypass all this, however, through the use of compiler flags. There are several, the most aggressive of which is \texttt{-cl-fast-relaxed-math}, which enables all ``unsafe'' math optimizations. To my knowledge, this will not impact the correctness of the Snow Simulator in any way, though one should of course check to be sure. 
