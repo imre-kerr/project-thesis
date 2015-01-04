@@ -21,10 +21,32 @@ However, GPGPU still had one fatal flaw. The only APIs available for interfacing
 
 %%=========================================
 \subsection{CUDA}
+Released in 2006, Nvidia's CUDA sought to make GPU programming easier by letting programmers write programs as they were used to, namely in terms of the task at hand rather than graphics primitives. CUDA is currently widely used, not only in scientific computing, but also for image and video processing, cryptography, physics simulation in games and more.
+
+The CUDA programming model splits code into host-side code, which runs on the CPU, and device-side code (also called kernels) which runs on the GPU. When calling a kernel, the number of threads to be created is included as an argument. Copying data between the host and device, as well as allocating memory on the device, is done explicitly. This allows the programmer to take advantage of the memory hierarchy on the device, placing often-used data in fast memory.
+
+A much more thorough treatment of the CUDA programming model is given in the CUDA C Programming guide \citep{nvidia2014programming}.
 
 %%=========================================
 \subsection{OpenCL}
+While CUDA has enjoyed great popularity, it suffers from vendor lock-in due to the fact that it only supports Nvidia GPUs. In an effort to create an open standard for GPU computing (or more precisely, heterogeneous computing), OpenCL was created. Originally developed by Apple, it is currently maintained by the Khronos Group.
 
+While CUDA and OpenCL have many similarities, there are a few key differences to note:
+\begin{itemize}
+\item CUDA is a \emph{GPU programming} API, while OpenCL is a \emph{heterogeneous programming} API. OpenCL implementations exist not only for GPUs, but also CPUs, APUs, and more exotic hardware such as Adapteva's Epiphany processor.
+\item To maintain compatibility across platforms, OpenCL device-side code must be compiled at runtime. This incurs a penalty in startup time compared to CUDA.
+\end{itemize}
+Finally, although OpenCL code is portable, code which has good performance on one platform is not necessarily performant on others. This issue of code portability versus performance portability, as well as the relative performance of OpenCL versus CUDA in general, is treated by \citet{weber2011comparing}.
+
+%%=========================================
+\subsection{The Snow Simulator}
+\subsubsection*{History}
+
+%%=========================================
+\subsubsection*{Architecture}
+
+%%=========================================
+\subsubsection*{Existing OpenCL port}
 
 %%=========================================
 \section{Goals}
@@ -37,20 +59,5 @@ Additionally, other students are also doing projects involving the snow simulato
 Finally, the snow simulator is a very computationally intensive program. Producing correct code should of course be priority number one, but one should not neglect performance. Therefore I will analyze the performance of the simulator using whatever tools I can, and explore options for using OpenCL-specific tricks to improve this performance.
 
 %%=========================================
-\section{Limitations}
-In this section you describe the limitations of your study. These may be related to the study object (physical limitations, operational limitations), to the environmental and operational conditions, to the thoroughness of the analysis, and so on.
-%%=========================================
-\section{Approach}
-Here you should describe the (scientific) approach that you will use to solve the problem and meet your objectives. You should specify the approach for each objective.
-
-If there are any ethical problems related to your approach, these should be highlighted and discussed.
-%%=========================================
 \section{Structure of the Report}
-The rest of the report is organized as follows. Chapter 2 gives an introduction to \ldots
-
-\begin{remark}
-Notice that chapter and section headings shall be written in lowercase, but that all main words should start with a capital letter.
-\end{remark}
-
-
-The report should be no longer than \underline{60 pages} in this format (+ the CV).
+The rest of the report is organized as follows. Chapter 2 describes the actual porting work (briefly, as this is quite boring and mechanical). Chapter 3 describes the testing that was done, as well as the results of these tests. Chapter 4 discusses the results, and chapter 5 suggests future work based on these.

@@ -1,9 +1,35 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\astroncite{Fastkor}{2012}]{fastkor2012boilerplate}
+Fastkor (2012).
+\newblock Example: Opencl boilerplate.
+\newblock {\em
+  https://fastkor.wordpress.com/2012/07/22/example-opencl-boilerplate/}.
+
+\bibitem[\protect\astroncite{Galoppo et~al.}{2005}]{galoppo2005lu}
+Galoppo, N., Govindaraju, N.~K., Henson, M., and Manocha, D. (2005).
+\newblock Lu-gpu: Efficient algorithms for solving dense linear systems on
+  graphics hardware.
+\newblock In {\em Proceedings of the 2005 ACM/IEEE conference on
+  Supercomputing}, page~3. IEEE Computer Society.
+
 \bibitem[\protect\astroncite{Larsen and McAllister}{2001}]{larsen2001fast}
 Larsen, E.~S. and McAllister, D. (2001).
 \newblock Fast matrix multiplies using graphics hardware.
 \newblock In {\em Proceedings of the 2001 ACM/IEEE conference on
   Supercomputing}, pages 55--55. ACM.
+
+\bibitem[\protect\astroncite{Nvidia}{2014}]{nvidia2014programming}
+Nvidia (2014).
+\newblock Cuda c programming guide.
+\newblock {\em
+  http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html}.
+
+\bibitem[\protect\astroncite{Weber et~al.}{2011}]{weber2011comparing}
+Weber, R., Gothandaraman, A., Hinde, R.~J., and Peterson, G.~D. (2011).
+\newblock Comparing hardware accelerators in scientific applications: A case
+  study.
+\newblock {\em Parallel and Distributed Systems, IEEE Transactions on},
+  22(1):58--68.
 
 \end{thebibliography}
