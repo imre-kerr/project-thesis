@@ -14,7 +14,7 @@ When starting the project, I set a goal of not changing any of the platform-inde
 \begin{enumerate}
 \item Write header files specifying the interface to the particle system.
 \item Write method stubs for all the public methods of the library. At this point the simulator compiled and ran, but of course didn’t do anything apart from showing snowflakes hanging motionless in the air.
-\item Write the OpenCL boilerplate of finding platforms and devices, and creating a context and queue. Doing this correctly and portably is nontrivial, as shown by \citet{fastkor2012boilerplate}.
+\item Write the OpenCL boilerplate of finding platforms and devices, and creating a context and queue. Doing this correctly and portably is nontrivial, as shown by e.g. \citet{fastkor2012boilerplate}.
 \item Implement the minimum amout of functionality to see that OpenCL was actually working. This was done by writing a kernel that moved snow particles downward at a constant rate. A lot of work was required to get to this point, and the process was a whole lot smoother after this. 
 \item Port the rest of the snow and wind systems. These systems were relatively unchanged since the 2012 port, so I was able to copy most of the code for these.
 \item Port the terrain system. At this point, I was familiar with the porting process and with OpenCL, which saved me a good amount of stumbling. Also, the CUDA code was written in a single semester by a single person, so it was very clean and well-structured compared to other parts of the simulator.
